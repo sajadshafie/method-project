@@ -12,7 +12,8 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import Appimage from '../../../common/Appimage'
+import Appbutton from "@/common/Appbutton";
 function Copyright(props) {
   return (
     <Typography
@@ -33,7 +34,9 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
+export default function AuthLayout({
+  linkSing, Textbutton, title, children, link
+}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -47,8 +50,7 @@ export default function SignInSide() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
-
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: 8,
@@ -58,51 +60,27 @@ export default function SignInSide() {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <Avatar sx={{ m: 1, bgcolor: "#FF9F1C" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5w">
-              ورود
+            <Typography component="h2" variant="h5w">
+              {title}
             </Typography>
-
             <Box
               component="form"
               noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="نام کاربری"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="کلمه عبور"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
-              <Button
+              {children}
+              <Appbutton
                 type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, fontWeight: "600" }}
+                // fullWidth
+                // variant="contained"
+                sx={{ mt: 3, mb: 2, fontWeight: "600", fontSize: "16px" }}
               >
-                <Typography variant="h6w">ورود</Typography>
-              </Button>
+                <Typography variant="h6w">{Textbutton}</Typography>
+              </Appbutton>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
@@ -110,8 +88,8 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"ایا اکانت ندارید؟ ساخت اکانت"}
+                  <Link href={link} variant="body2">
+                    {linkSing}
                   </Link>
                 </Grid>
               </Grid>
@@ -122,18 +100,18 @@ export default function SignInSide() {
           item
           xs={false}
           sm={4}
-          md={7}
+          md={6}
           sx={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
-            backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
           }}
-        />
+        >
+          <Appimage
+            src={'/static/image/auth_img.jpg'}
+          />
+        </Grid>
       </Grid>
     </ThemeProvider>
   );

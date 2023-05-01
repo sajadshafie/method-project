@@ -3,11 +3,13 @@ export default function componentStyleOverrides(theme) {
     return {
         MuiButton: {
             styleOverrides: {
-                root: {
+                root: { 
+                    backgroundColor: "red",
                     fontWeight: 500,
                     borderRadius: `${theme?.customization?.borderRadius}px`,
                 },
                 containedSecondary: {
+
                     color: theme.colors?.grey900,
                     backgroundColor: theme.colors?.secondary800,
                 }
@@ -190,7 +192,7 @@ export default function componentStyleOverrides(theme) {
         MuiOutlinedInput: {
             styleOverrides: {
                 root: {
-                    borderRadius:'4px',
+                    borderRadius: '4px',
                 },
             }
         },
@@ -198,11 +200,11 @@ export default function componentStyleOverrides(theme) {
             styleOverrides: {
                 listbox: {
                     backgroundColor: theme.colors?.paper,
-                    boxShadow:'0px 0px 10px 0px #888888'
+                    boxShadow: '0px 0px 10px 0px #888888'
                 },
                 popper: {
-                    boxShadow:'0px 0px 15px 0px rgba(0,0,0,.2)',
-                    borderRadius:'16px'
+                    boxShadow: '0px 0px 15px 0px rgba(0,0,0,.2)',
+                    borderRadius: '16px'
                 }
             }
         },

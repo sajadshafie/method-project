@@ -63,7 +63,7 @@ export default function themeTypography(theme) {
     },
     body1: {
       fontSize: "0.875rem",
-      fontWeight: 400,
+      fontWeight: 600,
       lineHeight: "1.334em",
     },
     body2: {

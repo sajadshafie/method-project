@@ -10,7 +10,7 @@ export default function Appbutton({ children, type, sx, variant }) {
                 ...sx, backgroundColor: '#12A3BA',
                 color: "white",
                 '&:hover': {
-                    backgroundColor: '#ffffff',
+                    backgroundColor: '#40aebf',
                     boxShadow: 'none',
                 }
             }}

@@ -1,0 +1,19 @@
+.link {
+  text-decoration: none;
+  color: #365dbf;
+  font-size: 14px;
+}
+.suffix_icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.icon_color {
+  color: rgba(123, 123, 123, 0.87);
+}

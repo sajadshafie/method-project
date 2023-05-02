@@ -5,11 +5,21 @@
 
 export default function themeTypography(theme) {
   return {
-    fontFamily: theme?.customization?.fontFamily,
+    fontFamily: "Iransans",
     h6w: {
       fontWeight: 700,
       color: theme.heading,
       fontSize: "0.75rem",
+    },
+    h8: {
+      fontWeight: 500,
+      color: theme.heading,
+      fontSize: "12px",
+    },
+    h7: {
+      fontWeight: 500,
+      color: theme.heading,
+      fontSize: "14px",
     },
     h6: {
       fontWeight: 500,

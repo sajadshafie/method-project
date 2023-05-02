@@ -1,70 +1,101 @@
-import * as React from "react";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import React, { useState } from "react";
+//Layout Auth
 import AuthLayout from "@/components/layout/AuthLayout";
 
+//MUI
+import { Grid } from "@mui/material";
 
+//Textvalidtor
+import AppTextValidator from "@/common/Apptextvalidator";
 
-
+//All Message Text
+import Texts from "@/components/Texts";
+import Appselectvalidator from "@/common/Appselectvalidator";
 
 export default function Registers() {
-    return (
-        <AuthLayout title={'عضویت'} Textbutton={'ساخت اکانت'} linkSing={'ورود به پنل کاربری'} link={'/login'}>
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="نام کاربری"
-                name="email"
-                autoComplete="email"
-                autoFocus
-            />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="نام شرکت"
-                name="email"
-                autoComplete="email"
-                autoFocus
-            />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="حوزه فعالیت شرکت"
-                name="email"
-                autoComplete="email"
-                autoFocus
-            />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="کد سامانه"
-                // name="email"
-                // autoComplete="email"
-                autoFocus
-            />
-            <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="کلمه عبور"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-            />
-            <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-            />
-        </AuthLayout>
-    );
+  const [form, setForm] = useState({
+    username: "",
+    company_name: "",
+    activity: "",
+    code: "",
+    password: "",
+    re_password: "",
+  });
+
+  const onChangeForm = (value, type) => {
+    setForm({
+      ...form,
+      [type]: value,
+    });
+  };
+
+  return (
+    <AuthLayout
+      title={"عضویت"}
+      Textbutton={"ساخت اکانت"}
+      linkSing={"ورود به پنل کاربری"}
+      link={"/"}
+    >
+      <Grid mb={2.5}>
+        <AppTextValidator
+          validators={["required"]}
+          onChange={(value) => onChangeForm(value, "username")}
+          label="نام کاربری"
+          value={form.username}
+          errorMessages={[Texts.error.username]}
+          type="text"
+        />
+      </Grid>
+      <Grid mb={2.5}>
+        <AppTextValidator
+          validators={["required"]}
+          onChange={(value) => onChangeForm(value, "company_name")}
+          label="نام شرکت"
+          value={form.company_name}
+          errorMessages={[Texts.error.company_name]}
+          type="text"
+        />
+      </Grid>
+      <Grid mb={2.5}>
+        <Appselectvalidator
+          // validators={["required"]}
+          onChange={(value) => onChangeForm(value, "activity")}
+          label="حوزه فعالیت"
+          value={form.activity}
+          // errorMessages={[Texts.error.activity]}
+          option={Texts.list_industry}
+        />
+      </Grid>
+      <Grid mb={2.5}>
+        <AppTextValidator
+          validators={["required"]}
+          onChange={(value) => onChangeForm(value, "code")}
+          label="کد سامانه"
+          value={form.code}
+          errorMessages={[Texts.error.code]}
+          type="number"
+        />
+      </Grid>
+      <Grid mb={2.5}>
+        <AppTextValidator
+          validators={["required"]}
+          onChange={(value) => onChangeForm(value, "password")}
+          label="کلمه عبور"
+          value={form.password}
+          errorMessages={[Texts.error.password]}
+          type="password"
+        />
+      </Grid>
+      <Grid mb={2.5}>
+        <AppTextValidator
+          validators={["required"]}
+          onChange={(value) => onChangeForm(value, "re_password")}
+          label="تکرار کلمه عبور"
+          value={form.re_password}
+          errorMessages={[Texts.error.re_password]}
+          type="password"
+        />
+      </Grid>
+    </AuthLayout>
+  );
 }

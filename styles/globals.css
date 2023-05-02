@@ -1,9 +1,15 @@
 body {
-  font-family: iransans;
+  font-family: iransans !important;
   direction: rtl;
 }
 
 @font-face {
   font-family: iransans;
   src: url(../public/font/IRANSansRegular/font.ttf) format("truetype");
+}
+* {
+  font-family: iransans !important;
+}
+.muirtl-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+  height: 46px;
 }

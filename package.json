@@ -16,10 +16,12 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "framer-motion": "^10.12.6",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-material-ui-form-validator": "^3.0.1",
     "sass": "^1.62.1",
     "stylis-plugin-rtl": "^2.1.1"
   },

@@ -71,7 +71,7 @@ export default function AuthLayout({
                     type="submit"
                     // fullWidth
                     // variant="contained"
-                    sx={{ mt: 3, mb: 2, fontWeight: "600", fontSize: "16px" }}
+                    sx={{ mt: 3, mb: 2, fontWeight: "400", fontSize: "16px" }}
                   >
                     <Typography variant="h6w">{Textbutton}</Typography>
                   </Appbutton>
@@ -108,3 +108,5 @@ export default function AuthLayout({
     </ThemeProvider>
   );
 }
+
+

@@ -44,6 +44,7 @@ export default function Login() {
           value={form.username}
           errorMessages={[Texts.error.username]}
           type="text"
+          name={'name'}
         />
       </Grid>
       <Grid mb={2}>

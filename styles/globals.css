@@ -7,9 +7,27 @@ body {
   font-family: iransans;
   src: url(../public/font/IRANSansRegular/font.ttf) format("truetype");
 }
+
 * {
   font-family: iransans !important;
 }
+
 .muirtl-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
   height: 46px;
 }
+
+.muirtl-a8il44-MuiPaper-root-MuiDrawer-paper {
+  background-color: #2B2D42 !important;
+
+}
+.text-menu > span{
+  color: white !important;
+  font-weight: 400 !important;
+}
+.list-item:hover .text-menu > span{
+  color: black !important;
+}
+/* .list-item:hover{
+  background-color:#2B2D42!important;
+  
+} */

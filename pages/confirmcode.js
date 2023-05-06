@@ -35,7 +35,6 @@ export default function Registers() {
       Textbutton={"ساخت اکانت"}
       linkSing={"ورود به پنل کاربری"}
       link={"/"}
-      step
     >
       <Grid mb={2.5}>
         <AppTextValidator
@@ -47,7 +46,7 @@ export default function Registers() {
           type="text"
         />
       </Grid>
-      <Grid mb={2.5}>
+      {/* <Grid mb={2.5}>
         <AppTextValidator
           validators={["required"]}
           onChange={(value) => onChangeForm(value, "company_name")}
@@ -96,7 +95,7 @@ export default function Registers() {
           errorMessages={[Texts.error.re_password]}
           type="password"
         />
-      </Grid>
+      </Grid> */}
     </AuthLayout>
   );
 }

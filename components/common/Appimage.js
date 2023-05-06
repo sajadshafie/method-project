@@ -1,12 +1,13 @@
 import Image from "next/image";
 
-const myLoader = ({ src, width, quality }) => {
+const myLoader = ({ src, width, quality, }) => {
   return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
 };
 
-const Appimage = ({ src }) => {
+const Appimage = ({ src, key }) => {
   return (
     <div
+      key={key}
       style={{
         position: "relative",
         width: "100%",

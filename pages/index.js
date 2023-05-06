@@ -9,11 +9,11 @@ import AuthLayout from "@/components/layout/AuthLayout";
 
 //Form
 
-import AppTextValidator from "@/common/Apptextvalidator";
+import AppTextValidator from "@/components/common/Apptextvalidator";
 import { useState } from "react";
 
 import Texts from "@/components/Texts";
-import AppInputPassword from "@/common/Appinputpassword";
+import AppInputPassword from "@/components/common/Appinputpassword";
 
 //LoginPage
 export default function Login() {
@@ -35,6 +35,7 @@ export default function Login() {
       Textbutton={"وارد شوید"}
       linkSing={"ایا اکانت ندارید؟ ساخت اکانت"}
       link={"/register"}
+      activeStep={1}
     >
       <Grid mb={2}>
         <AppTextValidator

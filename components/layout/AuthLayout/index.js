@@ -16,14 +16,15 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 //Global Tags
-import Appimage from "../../../common/Appimage";
-import Appbutton from "@/common/Appbutton";
-import Applink from "@/common/Applink";
+import Appimage from "../../common/Appimage";
+import Appbutton from "@/components/common/Appbutton";
+import Applink from "@/components/common/Applink";
 
 //Form
 import { ValidatorForm } from "react-material-ui-form-validator";
 
 import AnimateButton from "@/components/libs/Animatebutton";
+import StepBar from "@/components/base/StepBar";
 
 const theme = createTheme();
 
@@ -31,8 +32,10 @@ export default function AuthLayout({
   linkSing,
   Textbutton,
   title,
+  step,
   children,
   link,
+  activeStep
 }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -57,12 +60,13 @@ export default function AuthLayout({
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#FF9F1C" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h2" variant="h5w">
-              {title}
-            </Typography>
+            {
+              !step && <Grid>
+                <LockOutlinedIcon sx={{ background: "#FF9F1C",color:"white",width:"50px",height:"50px",borderRadius:"100%",padding:'15px' }} />
+                <Typography variant="h4">{title}</Typography>
+              </Grid>
+            }
+            {step && <StepBar active={activeStep}/>}
             <Grid sx={{ width: "100%", mt: 4 }}>
               <ValidatorForm>
                 {children}

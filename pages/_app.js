@@ -19,6 +19,9 @@ import createEmotionCache from "../src/createEmotionCache";
 //Global css
 import "../styles/globals.css";
 
+//style data grid table
+import 'react-data-grid/lib/styles.css';
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 

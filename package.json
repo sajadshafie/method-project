@@ -20,6 +20,7 @@
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
+    "react-data-grid": "^7.0.0-beta.29",
     "react-dom": "latest",
     "react-material-ui-form-validator": "^3.0.1",
     "sass": "^1.62.1",

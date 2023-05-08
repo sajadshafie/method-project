@@ -10,7 +10,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 //Icon
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import LoginIcon from '@mui/icons-material/Login';
 
 //Theme MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -35,16 +35,9 @@ export default function AuthLayout({
   step,
   children,
   link,
-  activeStep
+  activeStep, onSubmit, description
 }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -60,21 +53,20 @@ export default function AuthLayout({
               alignItems: "center",
             }}
           >
-            {
-              !step && <Grid>
-                <LockOutlinedIcon sx={{ background: "#FF9F1C",color:"white",width:"50px",height:"50px",borderRadius:"100%",padding:'15px' }} />
-                <Typography variant="h4">{title}</Typography>
-              </Grid>
-            }
-            {step && <StepBar active={activeStep}/>}
+            {step && <Grid mb={2}><StepBar active={activeStep} /></Grid>}
+            <Grid>
+              {!step && <LoginIcon sx={{ background: "#FF9F1C", color: "white", width: "50px", height: "50px", borderRadius: "100%", padding: '15px' }} />}
+              <Typography variant="h5">{title}</Typography>
+            </Grid>
+            {description&&<Typography mt={2} variant="subtitle2">{description}</Typography>}
             <Grid sx={{ width: "100%", mt: 4 }}>
-              <ValidatorForm>
+              <ValidatorForm onSubmit={onSubmit}>
                 {children}
                 <AnimateButton>
                   <Appbutton
                     type="submit"
                     // fullWidth
-                    // variant="contained"
+                    variant="contained"
                     sx={{ mt: 3, mb: 2, fontWeight: "400", fontSize: "16px" }}
                   >
                     <Typography variant="h6w">{Textbutton}</Typography>

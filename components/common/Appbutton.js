@@ -11,7 +11,6 @@ export default function Appbutton({ children, type, sx, variant }) {
                 color: "white",
                 '&:hover': {
                     backgroundColor: '#40aebf',
-                    boxShadow: 'none',
                 }
             }}
         >

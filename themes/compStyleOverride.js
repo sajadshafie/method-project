@@ -3,7 +3,7 @@ export default function componentStyleOverrides(theme) {
     return {
         MuiButton: {
             styleOverrides: {
-                root: { 
+                root: {
                     backgroundColor: "red",
                     fontWeight: 500,
                     borderRadius: `${theme?.customization?.borderRadius}px`,
@@ -111,10 +111,10 @@ export default function componentStyleOverrides(theme) {
                     background: bgColor,
                     borderRadius: `${theme?.customization?.borderRadius}px`,
                     '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: theme.colors?.grey400
+                        borderColor: 'red'
                     },
                     '&:hover $notchedOutline': {
-                        borderColor: theme.colors?.primaryLight
+                        borderColor: "#FF9F1C"
                     },
                     '&.MuiInputBase-multiline': {
                         padding: 1

@@ -2,12 +2,14 @@ import React from "react";
 
 export default {
   error: {
-    password: "کلمه عبور نمیتواند خالی باشد",
-    username: " نام کاربری نمیتواند خالی باشد",
-    company_name: "نام شرکت نمیتواند خالی باشد",
-    code: "کد نمیتواند خالی باشد",
-    re_password: "تکرار کلمه عبور نمیتواند خالی باشد",
+    password: "کلمه عبور الزامیست",
+    username: " نام کاربری الزامیست",
+    company_name: "نام شرکت الزامیست",
+    code: "کد تایید الزامیست",
+    re_password: "تکرار کلمه عبور الزامیست",
     password_notmatch: "کلمه عبور یکسان نمی باشد",
+    name_family:"نام خانوادگی الزامیست",
+    phone_number:"شماره موبایل الزامیست"
   },
   list_industry: [
     {

@@ -12,17 +12,18 @@ import { Grid } from "@mui/material";
 import AppTextValidator from "@/components/common/Apptextvalidator";
 
 //All Message Text
-import Texts from "@/components/Texts";
+import Globals from "@/components/Globals";
 import Appselectvalidator from "@/components/common/Appselectvalidator";
 
-export default function Registers() {
-  const route = useRouter()
+export default function Companyinfo() {
+  const route = useRouter();
   const [form, setForm] = useState({
     company_name: "",
     activity: "",
     phone_number: "",
     password: "",
     re_password: "",
+    states: "",
   });
 
   const onChangeForm = (value, type) => {
@@ -33,38 +34,39 @@ export default function Registers() {
   };
 
   const onSubmitForm = () => {
-    localStorage.setItem("user_data", JSON.stringify(form))
-    route.push('/confirmcode')
-  }
+    localStorage.setItem("user_data", JSON.stringify(form));
+    route.push("/confirmcode");
+  };
 
   return (
     <AuthLayout
-      title={"عضویت"}
-      Textbutton={"ساخت اکانت"}
+      title={"اطلاعات شرکت"}
+      Textbutton={"ذخیره اطلاعات"}
       linkSing={"ورود به پنل کاربری"}
       link={"/"}
       step
+      activeStep={3}
       onSubmit={onSubmitForm}
-
+      linkForgotpass="/forgotpassword"
     >
       <Grid mb={2.5}>
         <AppTextValidator
           validators={["required"]}
           onChange={(value) => onChangeForm(value, "company_name")}
-          label="نام کاربری"
+          label="نام شرکت"
           value={form.company_name}
-          errorMessages={[Texts.error.company_name]}
+          errorMessages={[Globals.error.company_name]}
           type="text"
         />
       </Grid>
       <Grid mb={2.5}>
-        <AppTextValidator
+        <Appselectvalidator
           validators={["required"]}
           onChange={(value) => onChangeForm(value, "activity")}
-          label="نام و نام خانوادگی "
+          label="حوزه فعالیت شرکت"
           value={form.activity}
-          errorMessages={[Texts.error.activity]}
-          type="text"
+          errorMessages={[Globals.error.activity]}
+          option={Globals.list_industry}
         />
       </Grid>
 
@@ -72,30 +74,20 @@ export default function Registers() {
         <AppTextValidator
           validators={["required"]}
           onChange={(value) => onChangeForm(value, "phone_number")}
-          label="شماره موبایل"
+          label="کد اقتصادی"
           value={form.phone_number}
-          errorMessages={[Texts.error.phone_number]}
+          errorMessages={[Globals.error.phone_number]}
           type="number"
         />
       </Grid>
       <Grid mb={2.5}>
-        <AppTextValidator
+        <Appselectvalidator
           validators={["required"]}
-          onChange={(value) => onChangeForm(value, "password")}
-          label="کلمه عبور"
-          value={form.password}
-          errorMessages={[Texts.error.password]}
-          type="password"
-        />
-      </Grid>
-      <Grid mb={2.5}>
-        <AppTextValidator
-          validators={["required"]}
-          onChange={(value) => onChangeForm(value, "re_password")}
-          label="تکرار کلمه عبور"
-          value={form.re_password}
-          errorMessages={[Texts.error.re_password]}
-          type="password"
+          onChange={(value) => onChangeForm(value, "states")}
+          label="استان"
+          value={form.states}
+          errorMessages={[Globals.error.states]}
+          option={Globals.states}
         />
       </Grid>
     </AuthLayout>

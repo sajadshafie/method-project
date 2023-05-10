@@ -12,7 +12,7 @@ import AuthLayout from "@/components/layout/AuthLayout";
 import AppTextValidator from "@/components/common/Apptextvalidator";
 import { useState } from "react";
 
-import Texts from "@/components/Texts";
+import Globals from "@/components/Globals";
 import AppInputPassword from "@/components/common/Appinputpassword";
 
 //LoginPage
@@ -35,17 +35,18 @@ export default function Login() {
       Textbutton={"وارد شوید"}
       linkSing={"ایا اکانت ندارید؟ ساخت اکانت"}
       link={"/register"}
+      linkForgotpass="/forgotpassword"
       activeStep={1}
     >
       <Grid mb={2}>
         <AppTextValidator
           validators={["required"]}
           onChange={(value) => onChangeForm(value, "username")}
-          label="نام کاربری"
+          label="نام کاربری یا تلفن همراه"
           value={form.username}
-          errorMessages={[Texts.error.username]}
+          errorMessages={[Globals.error.username]}
           type="text"
-          name={'name'}
+          name={"name"}
         />
       </Grid>
       <Grid mb={2}>
@@ -54,7 +55,7 @@ export default function Login() {
           onChange={(value) => onChangeForm(value, "password")}
           label="کلمه عبور"
           value={form.password}
-          errorMessages={[Texts.error.password]}
+          errorMessages={[Globals.error.password]}
           type="password"
         />
       </Grid>

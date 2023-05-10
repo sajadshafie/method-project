@@ -5,7 +5,7 @@ body {
 
 @font-face {
   font-family: iransans;
-  src: url(../public/font/IRANSansRegular/font.ttf) format("truetype");
+  src: url(../public/font/IRANSansRegular/IRANSansWeb.woff) format("truetype");
 }
 
 * {
@@ -13,21 +13,28 @@ body {
 }
 
 .muirtl-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
-  height: 46px;
+  height: 48px;
+  font-size: 14px !important;
 }
+
+/* input {
+  font-size: 12px !important;
+} */
 
 .muirtl-a8il44-MuiPaper-root-MuiDrawer-paper {
-  background-color: #2B2D42 !important;
-
+  background-color: #2b2d42 !important;
 }
-.text-menu > span{
+.text-menu > span {
   color: white !important;
   font-weight: 400 !important;
 }
-.list-item:hover .text-menu > span{
+.list-item:hover .text-menu > span {
   color: black !important;
 }
 /* .list-item:hover{
   background-color:#2B2D42!important;
   
 } */
+.muirtl-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  font-size: 13px !important;
+}

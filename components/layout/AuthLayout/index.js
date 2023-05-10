@@ -10,8 +10,8 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 //Icon
-import LoginIcon from '@mui/icons-material/Login';
-
+import LoginIcon from "@mui/icons-material/Login";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
 //Theme MUI
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -35,10 +35,12 @@ export default function AuthLayout({
   step,
   children,
   link,
-  activeStep, onSubmit, description
+  activeStep,
+  onSubmit,
+  description,
+  linkForgotpass = "/",
+  isForgot,
 }) {
-
-
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -53,12 +55,45 @@ export default function AuthLayout({
               alignItems: "center",
             }}
           >
-            {step && <Grid mb={2}><StepBar active={activeStep} /></Grid>}
-            <Grid>
-              {!step && <LoginIcon sx={{ background: "#FF9F1C", color: "white", width: "50px", height: "50px", borderRadius: "100%", padding: '15px' }} />}
-              <Typography variant="h5">{title}</Typography>
+            {step && (
+              <Grid mb={2} width="100%">
+                <StepBar active={activeStep} />
+              </Grid>
+            )}
+            <Grid display={"flex"} flexDirection={"column"} alignItems="center">
+              {!step &&
+                (isForgot ? (
+                  <LockOpenIcon
+                    sx={{
+                      background: "#FF9F1C",
+                      color: "white",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "100%",
+                      padding: "15px",
+                    }}
+                  />
+                ) : (
+                  <LoginIcon
+                    sx={{
+                      background: "#FF9F1C",
+                      color: "white",
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "100%",
+                      padding: "15px",
+                    }}
+                  />
+                ))}
+              <Typography mt={2} variant="h6">
+                {title}
+              </Typography>
             </Grid>
-            {description&&<Typography mt={2} variant="subtitle2">{description}</Typography>}
+            {description && (
+              <Typography mt={2} variant="subtitle2">
+                {description}
+              </Typography>
+            )}
             <Grid sx={{ width: "100%", mt: 4 }}>
               <ValidatorForm onSubmit={onSubmit}>
                 {children}
@@ -74,7 +109,7 @@ export default function AuthLayout({
                 </AnimateButton>
                 <Grid container justifyContent={"space-between"}>
                   <Grid item mb={0.7}>
-                    <Applink href="#" variant="body2">
+                    <Applink href={linkForgotpass} variant="body2">
                       کلمه عبور را فراموش کرده اید؟
                     </Applink>
                   </Grid>
@@ -104,5 +139,3 @@ export default function AuthLayout({
     </ThemeProvider>
   );
 }
-
-

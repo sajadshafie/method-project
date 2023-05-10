@@ -3,22 +3,26 @@ import React, { useEffect, useState } from "react";
 import AuthLayout from "@/components/layout/AuthLayout";
 
 //MUI
-import { Grid } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 
 //Textvalidtor
 import AppTextValidator from "@/components/common/Apptextvalidator";
 
+//Router
+import { useRouter } from "next/router";
+
 //All Message Text
-import Texts from "@/components/Texts";
+import Globals from "@/components/Globals";
 import Appselectvalidator from "@/components/common/Appselectvalidator";
 
-export default function Registers() {
+export default function Confirmcode() {
+  const route = useRouter();
 
   const [form, setForm] = useState({
     username: "",
     code: "",
     re_password: "",
-    phone_number: ""
+    phone_number: "",
   });
 
   const onChangeForm = (value, type) => {
@@ -29,20 +33,27 @@ export default function Registers() {
   };
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("user_data"))
+    const data = JSON.parse(localStorage.getItem("user_data"));
     setForm({
-      ...data, code: ""
-    })
-  }, [])
+      ...data,
+      code: "",
+    });
+  }, []);
+
+  const onSubmitForm = () => {
+    route.push("/company_info");
+  };
 
   return (
     <AuthLayout
       title={`کد تایید `}
-      Textbutton={"ارسال"}
+      Textbutton={"تایید"}
       linkSing={"ورود به پنل کاربری"}
       link={"/"}
-      description={`کد تایید به شماره ${form.phone_number}  ارسال شده است  `}
+      description={`کد مورد نظر از طریق پیامک به شماره ${form.phone_number} ارسال شده است. در صورت عدم دریافت پیامک دکمه ارسال مجدد را بزنید`}
       step={2}
+      linkForgotpass="/forgotpassword"
+      onSubmit={onSubmitForm}
     >
       <Grid mb={2.5}>
         <AppTextValidator
@@ -50,9 +61,14 @@ export default function Registers() {
           onChange={(value) => onChangeForm(value, "code")}
           label="کد تایید"
           value={form.code}
-          errorMessages={[Texts.error.code]}
+          errorMessages={[Globals.error.code]}
           type="text"
         />
+      </Grid>
+      <Grid mt={5}>
+        <Button fullWidth variant={"outlined"}>
+          ارسال مجدد
+        </Button>
       </Grid>
       {/* <Grid mb={2.5}>
         <AppTextValidator

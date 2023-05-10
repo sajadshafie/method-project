@@ -14,9 +14,8 @@ import AppTextValidator from "@/components/common/Apptextvalidator";
 //All Message Text
 import Globals from "@/components/Globals";
 import Appselectvalidator from "@/components/common/Appselectvalidator";
-import AppInputPassword from "@/components/common/Appinputpassword";
 
-export default function Registers() {
+export default function Forgotpassword() {
   const route = useRouter();
   const [form, setForm] = useState({
     username: "",
@@ -40,25 +39,27 @@ export default function Registers() {
 
   return (
     <AuthLayout
-      title={"عضویت"}
-      Textbutton={"ساخت اکانت"}
+      title={"بازیابی کلمه عبور"}
+      description={
+        "برای بازیابی کلمه عبور به شماره وارد شده کد به شماره وارد شده ارسال میشود"
+      }
+      Textbutton={"ارسال کد"}
       linkSing={"ورود به پنل کاربری"}
       link={"/"}
-      linkForgotpass="/forgotpassword"
-      step
       onSubmit={onSubmitForm}
+      activeStep={1}
+      isForgot
     >
       <Grid mb={2.5}>
         <AppTextValidator
           validators={["required"]}
           onChange={(value) => onChangeForm(value, "username")}
-          label="نام کاربری"
+          label="نام کاربری یا تلفن همراه"
           value={form.username}
           errorMessages={[Globals.error.username]}
           type="text"
         />
       </Grid>
-
       <Grid mb={2.5}>
         <AppTextValidator
           validators={["required"]}
@@ -67,26 +68,6 @@ export default function Registers() {
           value={form.phone_number}
           errorMessages={[Globals.error.phone_number]}
           type="number"
-        />
-      </Grid>
-      <Grid mb={2.5}>
-        <AppInputPassword
-          validators={["required"]}
-          onChange={(value) => onChangeForm(value, "password")}
-          label="کلمه عبور"
-          value={form.password}
-          errorMessages={[Globals.error.password]}
-          type="password"
-        />
-      </Grid>
-      <Grid mb={2.5}>
-        <AppInputPassword
-          validators={["required"]}
-          onChange={(value) => onChangeForm(value, "re_password")}
-          label="تکرار کلمه عبور"
-          value={form.re_password}
-          errorMessages={[Globals.error.re_password]}
-          type="password"
         />
       </Grid>
     </AuthLayout>

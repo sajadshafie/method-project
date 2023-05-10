@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import { TextValidator } from "react-material-ui-form-validator";
 
@@ -16,18 +17,20 @@ export default function AppTextValidator({
   type,
 }) {
   return (
-    <TextValidator
-      type={type}
-      style={{ width: "100%" }}
-      rows={5}
-      rowsMax={5}
-      className={`${className} ${style.input}`}
-      label={label}
-      onChange={(e) => onChange(e.target.value)}
-      name={name}
-      value={value}
-      validators={validators}
-      errorMessages={errorMessages}
-    />
+    <Grid fontSize={"10px"}>
+      <TextValidator
+        type={type}
+        style={{ width: "100%" }}
+        rows={5}
+        rowsMax={5}
+        className={`${className} ${style.input}`}
+        label={label}
+        onChange={(e) => onChange(e.target.value)}
+        name={name}
+        value={value}
+        validators={validators}
+        errorMessages={errorMessages}
+      />
+    </Grid>
   );
 }

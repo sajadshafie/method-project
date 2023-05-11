@@ -25,6 +25,7 @@ import { ValidatorForm } from "react-material-ui-form-validator";
 
 import AnimateButton from "@/components/libs/Animatebutton";
 import StepBar from "@/components/base/StepBar";
+import AppCarousel from "@/components/common/AppCarousel";
 
 const theme = createTheme();
 
@@ -41,6 +42,17 @@ export default function AuthLayout({
   linkForgotpass = "/",
   isForgot,
 }) {
+  const Item = [
+    {
+      key: 1
+    },
+    {
+      key: 1
+    },
+    {
+      key: 1
+    },
+  ]
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -133,7 +145,7 @@ export default function AuthLayout({
                 : t.palette.grey[900],
           }}
         >
-          <Appimage src={"/static/image/auth_img.jpg"} />
+          <AppCarousel items={Item} />
         </Grid>
       </Grid>
     </ThemeProvider>

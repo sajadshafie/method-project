@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import AppTable from "@/components/common/AppTable";
 import MessageCard from "@/components/base/Card/MessageCard";
 import { Grid } from "@mui/material";
+import api from "@/config/api";
 export default function index() {
   const labels = ["شماره", "نام محصول", "کد محصول", "تاریخ فروش", "کد مالیاتی"];
 
@@ -43,7 +44,13 @@ export default function index() {
       code_: "5636723",
     },
   ];
-
+  useEffect(() => {
+    api.getData().then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [])
   return (
     <MainLayout title={"حساب مالیاتی"} activeIndex={0}>
       <Grid mb={6}>

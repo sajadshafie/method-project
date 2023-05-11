@@ -24,17 +24,36 @@ body {
 .muirtl-a8il44-MuiPaper-root-MuiDrawer-paper {
   background-color: #2b2d42 !important;
 }
-.text-menu > span {
+
+.text-menu>span {
   color: white !important;
   font-weight: 400 !important;
 }
-.list-item:hover .text-menu > span {
+
+.list-item:hover .text-menu>span {
   color: black !important;
 }
+
 /* .list-item:hover{
   background-color:#2B2D42!important;
   
 } */
 .muirtl-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
   font-size: 13px !important;
+}
+
+.slick-list {
+  height: 100%;
+}
+.slick-track{
+  height: 100%;
+}
+.slick-slider {
+  height: 100%;
+}
+.slick-slide{
+  height: 100%;
+}
+.slick-slide div{
+  height: 100%;
 }

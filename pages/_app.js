@@ -16,6 +16,9 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import createEmotionCache from "../src/createEmotionCache";
 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 //Global css
 import "../styles/globals.css";
 
